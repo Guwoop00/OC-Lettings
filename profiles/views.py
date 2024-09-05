@@ -12,6 +12,17 @@ from profiles.models import Profile
 # Nullam elementum urna nisi, pellentesque iaculis enim cursus in.
 # Praesent volutpat porttitor magna, non finibus neque cursus id.
 def index(request):
+    """
+    Handles requests to the index page of the profiles application.
+
+    Retrieves all `Profile` objects from the database and renders them using the 'profiles/index.html' template.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The rendered response containing the list of profiles.
+    """
     profiles_list = Profile.objects.all()
     context = {'profiles_list': profiles_list}
     return render(request, 'profiles/index.html', context)
@@ -24,6 +35,19 @@ def index(request):
 # it. Nam aliquam dignissim congue.
 # Pellentesque habitant morbi tristique senectus et netus et males
 def profile(request, username):
+    """
+    Handles requests to view a specific user's profile.
+
+    Retrieves a `Profile` object based on the provided username
+    and renders its details using the 'profile.html' template.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+        username (str): The username of the user whose profile is to be retrieved.
+
+    Returns:
+        HttpResponse: The rendered response containing the details of the specified profile.
+    """
     profile = Profile.objects.get(user__username=username)
     context = {'profile': profile}
     return render(request, 'profile.html', context)
