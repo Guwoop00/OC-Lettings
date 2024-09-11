@@ -6,18 +6,13 @@ import configparser
 import sentry_sdk
 
 config = configparser.ConfigParser()
-config.read('/Users/guwoop/Documents/OC-Lettings/sentry.conf')
+config.read('sentry.conf')
 
 sentry_sdk.init(
     dsn=config['sentry']['dsn'],
-    traces_sample_rate=1.0,
-    profiles_sample_rate=1.0,
+    traces_sample_rate=float(config['sentry']['traces_sample_rate']),
+    profiles_sample_rate=float(config['sentry']['profiles_sample_rate']),
 )
-
-print(config['sentry']['dsn'])
-print(config['sentry']['traces_sample_rate'])
-print(config['sentry']['profiles_sample_rate'])
-
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
