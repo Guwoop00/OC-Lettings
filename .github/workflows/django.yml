@@ -1,0 +1,51 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Lint code
+        run: flake8 .
+
+      - name: Run tests with coverage
+        run: |
+          coverage run --source='.' manage.py test
+          coverage report --fail-under=80
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log in to Docker Hub
+        run: echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
+
+      - name: Build and push Docker image
+        run: |
+          docker build -t guwoop/oc_lettings_site:$GITHUB_SHA .
+          docker push guwoop/oc_lettings_site:$GITHUB_SHA
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Render/AWS/Heroku
+        run: |
+          echo "Déployer le conteneur ici"
+
