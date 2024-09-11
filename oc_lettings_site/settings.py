@@ -6,7 +6,7 @@ import configparser
 import sentry_sdk
 
 config = configparser.ConfigParser()
-config.read('sentry.conf')
+config.read('/Users/guwoop/Documents/OC-Lettings/sentry.conf')
 
 sentry_sdk.init(
     dsn=config['sentry']['dsn'],
