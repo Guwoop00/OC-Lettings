@@ -8,11 +8,14 @@ import sentry_sdk
 config = configparser.ConfigParser()
 config.read('sentry.conf')
 
-sentry_sdk.init(
-    dsn=config['sentry']['dsn'],
-    traces_sample_rate=float(config['sentry']['traces_sample_rate']),
-    profiles_sample_rate=float(config['sentry']['profiles_sample_rate']),
-)
+if 'sentry' in config:
+    sentry_sdk.init(
+        dsn=config['sentry']['dsn'],
+        traces_sample_rate=float(config['sentry']['traces_sample_rate']),
+        profiles_sample_rate=float(config['sentry']['profiles_sample_rate']),
+    )
+else:
+    sentry_dsn = None
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
