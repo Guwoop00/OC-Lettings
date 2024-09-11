@@ -10,8 +10,8 @@ config.read('sentry.conf')
 
 sentry_sdk.init(
     dsn=config['sentry']['dsn'],
-    traces_sample_rate=float(config['sentry']['traces_sample_rate']),
-    profiles_sample_rate=float(config['sentry']['profiles_sample_rate']),
+    traces_sample_rate=1.0,
+    profiles_sample_rate=1.0,
 )
 
 print(config['sentry']['dsn'])
