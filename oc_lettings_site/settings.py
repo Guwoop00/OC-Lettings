@@ -14,6 +14,11 @@ sentry_sdk.init(
     profiles_sample_rate=float(config['sentry']['profiles_sample_rate']),
 )
 
+print(config['sentry']['dsn'])
+print(config['sentry']['traces_sample_rate'])
+print(config['sentry']['profiles_sample_rate'])
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
 

@@ -24,6 +24,10 @@ jobs:
       - name: Lint code
         run: flake8 .
 
+      - name: Check sentry.conf
+        run: cat sentry.conf
+      
+
       - name: Run tests with coverage
         run: |
           coverage run --source='.' manage.py test
