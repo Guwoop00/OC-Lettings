@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Models &#8212; OC-Lettings  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API" href="api.html" />
+    <link rel="prev" title="Quick Start" href="quickstart.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="models">
+<h1>Models<a class="headerlink" href="#models" title="Link to this heading">¶</a></h1>
+<p>La base de données du projet OC Lettings utilise SQLite et est structurée avec les modèles suivants, répartis dans deux applications : <cite>profiles</cite> et <cite>lettings</cite>.</p>
+<section id="modeles-de-l-application-profiles">
+<h2>Modèles de l’application <cite>profiles</cite><a class="headerlink" href="#modeles-de-l-application-profiles" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>User</strong> : Modèle par défaut de Django pour les utilisateurs.</p></li>
+<li><p><strong>Profile</strong> : Modèle pour les profils des utilisateurs avec les champs suivants :</p>
+<ul>
+<li><p><cite>user</cite> : L’utilisateur associé (OneToOneField).</p></li>
+<li><p><cite>favorite_city</cite> : La ville favorite de l’utilisateur (CharField).</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="modeles-de-l-application-lettings">
+<h2>Modèles de l’application <cite>lettings</cite><a class="headerlink" href="#modeles-de-l-application-lettings" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Address</strong> : Modèle pour une adresse avec les champs suivants :</p>
+<ul>
+<li><p><cite>number</cite> : Numéro de la maison (PositiveIntegerField).</p></li>
+<li><p><cite>street</cite> : Nom de la rue (CharField).</p></li>
+<li><p><cite>city</cite> : Nom de la ville (CharField).</p></li>
+<li><p><cite>state</cite> : Code de l’état (CharField, 2 caractères).</p></li>
+<li><p><cite>zip_code</cite> : Code postal (PositiveIntegerField).</p></li>
+<li><p><cite>country_iso_code</cite> : Code ISO du pays (CharField, 3 caractères).</p></li>
+</ul>
+</li>
+<li><p><strong>Letting</strong> : Modèle pour une location avec les champs suivants :</p>
+<ul>
+<li><p><cite>title</cite> : Titre de la location (CharField).</p></li>
+<li><p><cite>address</cite> : Adresse associée (OneToOneField).</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="tables-generees-par-ces-modeles">
+<h2>Tables générées par ces modèles<a class="headerlink" href="#tables-generees-par-ces-modeles" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>auth_user</strong> : Table par défaut pour les utilisateurs.</p></li>
+<li><p><strong>profiles_profile</strong> : Table pour les profils des utilisateurs.</p></li>
+<li><p><strong>lettings_address</strong> : Table pour les adresses.</p></li>
+<li><p><strong>lettings_letting</strong> : Table pour les locations.</p></li>
+</ul>
+<p>Ces tables permettent de stocker et gérer les informations des utilisateurs et des locations dans OC Lettings.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">OC-Lettings</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Table des matières</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#modeles-de-l-application-profiles">Modèles de l’application <cite>profiles</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modeles-de-l-application-lettings">Modèles de l’application <cite>lettings</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tables-generees-par-ces-modeles">Tables générées par ces modèles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="quickstart.html" title="previous chapter">Quick Start</a></li>
+      <li>Next: <a href="api.html" title="next chapter">API</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, guwoop.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/models.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
