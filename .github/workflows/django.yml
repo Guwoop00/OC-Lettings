@@ -36,6 +36,9 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Log in to Docker Hub
         run: echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
 
@@ -43,6 +46,7 @@ jobs:
         run: |
           docker build -t guwoop/oc_lettings_site:$GITHUB_SHA .
           docker push guwoop/oc_lettings_site:$GITHUB_SHA
+
 
   deploy:
     needs: build
