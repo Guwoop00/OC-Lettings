@@ -24,15 +24,13 @@ jobs:
       - name: Lint code
         run: flake8 .
 
-      - name: Set environment variables
-        run: |
-          echo "SENTRY_DSN=${{ secrets.SENTRY_DSN }}"
-      
-
       - name: Run tests with coverage
         run: |
           coverage run --source='.' manage.py test
           coverage report --fail-under=80
+        env:
+          DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
 
   build:
     needs: test
