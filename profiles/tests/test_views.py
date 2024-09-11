@@ -26,7 +26,8 @@ class ProfileViewsTest(TestCase):
         """
         Test the profile view returns the correct template and context for a specific user.
         """
-        response = self.client.get(reverse('profiles:profile', kwargs={'username': self.user.username}))
+        response = self.client.get(reverse('profiles:profile',
+                                           kwargs={'username': self.user.username}))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'profile.html')
         self.assertEqual(response.context['profile'], self.profile)

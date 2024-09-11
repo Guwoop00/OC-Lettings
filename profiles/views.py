@@ -15,7 +15,8 @@ def index(request):
     """
     Handles requests to the index page of the profiles application.
 
-    Retrieves all `Profile` objects from the database and renders them using the 'profiles/index.html' template.
+    Retrieves all `Profile` objects from the database and
+    renders them using the 'profiles/index.html' template.
 
     Args:
         request (HttpRequest): The HTTP request object.

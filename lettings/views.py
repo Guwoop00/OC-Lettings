@@ -15,7 +15,8 @@ def index(request):
     """
     Handles requests to the index page of the lettings application.
 
-    Retrieves all `Letting` objects from the database and renders them using the 'lettings/index.html' template.
+    Retrieves all `Letting` objects from the database and
+    renders them using the 'lettings/index.html' template.
 
     Args:
         request (HttpRequest): The HTTP request object.
