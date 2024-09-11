@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - '*'
 
 jobs:
   test:
@@ -52,7 +55,10 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to Render/AWS/Heroku
+      - name: Deploy to Render
         run: |
-          echo "Déployer le conteneur ici"
+          curl -X POST "https://api.render.com/v1/services/SERVICE_ID/deploys" \
+          -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+          -H "Content-Type: application/json" \
+          -d '{"clearCache": false}'
 
