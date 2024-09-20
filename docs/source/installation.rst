@@ -1,35 +1,35 @@
 Installation
 ============
 
-Pour installer le projet OC Lettings, vous aurez besoin de :
+To install the OC Lettings project, you will need:
 
-- Python 3.11 ou plus
-- Un compte GitHub avec les secrets définis
-- Un compte AWS configuré pour le déploiement
-- Un compte DockerHub
+- Python 3.11 or higher
+- A GitHub account with secrets configured
+- An AWS account set up for deployment
+- A DockerHub account
 
-Suivez ces étapes :
+Follow these steps:
 
-**1. Clonez le dépôt depuis GitHub :**
+**1. Clone the repository from GitHub:**
 
 .. code-block:: bash
 
    git clone https://github.com/Guwoop00/OC-Lettings.git
 
-**2. Accédez au répertoire du projet :**
+**2. Navigate to the project directory:**
 
 .. code-block:: bash
 
    cd OC-Lettings
 
-**3. Créez et activez un environnement virtuel :**
+**3. Create and activate a virtual environment:**
 
 .. code-block:: bash
 
    python -m venv venv
    source venv/bin/activate
 
-**4. Installez les dépendances :**
+**4. Install the dependencies:**
 
 .. code-block:: bash
 

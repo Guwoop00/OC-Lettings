@@ -1,35 +1,35 @@
 Quick Start
 ===========
 
-Pour démarrer rapidement avec OC Lettings :
+To quickly get started with OC Lettings:
 
-**1. Activez l'environnement virtuel :**
+**1. Activate the virtual environment:**
 
 .. code-block:: bash
 
    source venv/bin/activate
 
-**2. Configurez les variables d'environnement :**
+**2. Configure the environment variables:**
 
-   Les variables d'environnement sont définies dans GitHub Actions. Assurez-vous que les secrets nécessaires sont configurés dans les paramètres de votre dépôt GitHub.
+   The environment variables are defined in GitHub Actions. Make sure the necessary secrets are configured in your GitHub repository settings.
 
-**3. Exécutez le serveur de développement Django :**
+**3. Run the Django development server:**
 
 .. code-block:: bash
 
    python manage.py runserver
 
-**4. Ouvrez votre navigateur et accédez à l'URL suivante :**
+**4. Open your browser and go to the following URL:**
 
 .. code-block:: none
 
    http://localhost:8000
 
-**5. Accédez à l'interface d'administration :**
+**5. Access the admin interface:**
 
-   Vous pouvez accéder à l'interface d'administration en naviguant à l'URL suivante : http://127.0.0.1:8000/admin/
+   You can access the admin interface by navigating to the following URL: http://127.0.0.1:8000/admin/
 
-   Les identifiants de connexion sont :
+   The login credentials are:
 
-   - **Nom d'utilisateur** : admin
-   - **Mot de passe** : Abc1234!
+   - **Username**: admin
+   - **Password**: Abc1234!

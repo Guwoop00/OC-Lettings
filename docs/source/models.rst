@@ -1,40 +1,40 @@
 Models
 ===============
 
-La base de données du projet OC Lettings utilise SQLite et est structurée avec les modèles suivants, répartis dans deux applications : `profiles` et `lettings`.
+The OC Lettings project database uses SQLite and is structured with the following models, divided into two apps: `profiles` and `lettings`.
 
-Modèles de l'application `profiles`
------------------------------------
+Models in the `profiles` app
+----------------------------
 
-- **User** : Modèle par défaut de Django pour les utilisateurs.
-- **Profile** : Modèle pour les profils des utilisateurs avec les champs suivants :
+- **User**: Django's default user model.
+- **Profile**: A model for user profiles with the following fields:
 
-  - `user` : L'utilisateur associé (OneToOneField).
-  - `favorite_city` : La ville favorite de l'utilisateur (CharField).
+  - `user`: The associated user (OneToOneField).
+  - `favorite_city`: The user's favorite city (CharField).
 
-Modèles de l'application `lettings`
------------------------------------
+Models in the `lettings` app
+----------------------------
 
-- **Address** : Modèle pour une adresse avec les champs suivants :
+- **Address**: A model for an address with the following fields:
 
-  - `number` : Numéro de la maison (PositiveIntegerField).
-  - `street` : Nom de la rue (CharField).
-  - `city` : Nom de la ville (CharField).
-  - `state` : Code de l'état (CharField, 2 caractères).
-  - `zip_code` : Code postal (PositiveIntegerField).
-  - `country_iso_code` : Code ISO du pays (CharField, 3 caractères).
+  - `number`: House number (PositiveIntegerField).
+  - `street`: Street name (CharField).
+  - `city`: City name (CharField).
+  - `state`: State code (CharField, 2 characters).
+  - `zip_code`: Postal code (PositiveIntegerField).
+  - `country_iso_code`: Country ISO code (CharField, 3 characters).
 
-- **Letting** : Modèle pour une location avec les champs suivants :
+- **Letting**: A model for a rental property with the following fields:
 
-  - `title` : Titre de la location (CharField).
-  - `address` : Adresse associée (OneToOneField).
+  - `title`: Rental title (CharField).
+  - `address`: The associated address (OneToOneField).
 
-Tables générées par ces modèles
+Generated tables by these models
 -------------------------------
 
-- **auth_user** : Table par défaut pour les utilisateurs.
-- **profiles_profile** : Table pour les profils des utilisateurs.
-- **lettings_address** : Table pour les adresses.
-- **lettings_letting** : Table pour les locations.
+- **auth_user**: Default table for users.
+- **profiles_profile**: Table for user profiles.
+- **lettings_address**: Table for addresses.
+- **lettings_letting**: Table for rental properties.
 
-Ces tables permettent de stocker et gérer les informations des utilisateurs et des locations dans OC Lettings.
+These tables store and manage user and rental property information within the OC Lettings application.

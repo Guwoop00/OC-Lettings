@@ -1,12 +1,12 @@
 Introduction
 ============
 
-OC Lettings est une application web développée avec Django pour gérer les locations et les profils utilisateurs. Elle permet d'afficher et de gérer facilement les informations sur les propriétés et les utilisateurs.
+OC Lettings is a web application developed with Django to manage rental properties and user profiles. It allows easy viewing and management of property and user information.
 
-Voici les principales améliorations apportées :
+Here are the key improvements made:
 
-Architecture Modulaire : Le code a été réorganisé en plusieurs applications pour améliorer sa structure et sa gestion.
-Résolution de Problèmes : Des problèmes ont été corrigés pour rendre l'application plus stable et de meilleure qualité.
-Surveillance avec Sentry : Sentry a été intégré pour surveiller l'application et suivre les erreurs efficacement.
-Automatisation du Déploiement : Un pipeline CI/CD a été mis en place pour automatiser la compilation, les tests, la création de conteneurs Docker et le déploiement de l'application.
-Documentation Technique : Une documentation complète a été rédigée pour expliquer l'installation, les technologies utilisées, la structure de la base de données et les procédures de déploiement.
+- **Modular Architecture**: The code has been reorganized into multiple apps to improve its structure and maintainability.
+- **Issue Resolution**: Several bugs were fixed to enhance the stability and quality of the application.
+- **Monitoring with Sentry**: Sentry was integrated to monitor the application and track errors efficiently.
+- **Deployment Automation**: A CI/CD pipeline was implemented to automate building, testing, Docker containerization, and deployment.
+- **Technical Documentation**: Comprehensive documentation has been created to explain the installation process, technologies used, database structure, and deployment procedures.

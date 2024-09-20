@@ -1,44 +1,44 @@
-Deployment
+### Deployment
 ==========
 
-Pour déployer le projet OC Lettings sur Render, suivez les étapes ci-dessous.
+To deploy the OC Lettings project on Render, follow the steps below.
 
-Pré-requis
+#### Prerequisites
 ----------
-- Un compte Render.
-- Un dépôt GitHub avec le projet OC Lettings.
+- A Render account.
+- A GitHub repository containing the OC Lettings project.
 
-Étapes de Déploiement
+#### Deployment Steps
 ---------------------
 
-**1. Connectez Render à GitHub :**
+**1. Connect Render to GitHub:**
 
-   - Connectez-vous à votre compte Render.
-   - Accédez à la page des intégrations et autorisez Render à accéder à votre compte GitHub.
+   - Log in to your Render account.
+   - Go to the integrations page and authorize Render to access your GitHub account.
 
-**2. Créez un nouveau service Web sur Render :**
+**2. Create a new Web Service on Render:**
 
-   - Cliquez sur "New Web Service" sur le tableau de bord de Render.
-   - Connectez votre dépôt GitHub contenant le projet OC Lettings.
-   - Sélectionnez la branche que vous souhaitez déployer (par exemple, `main`).
+   - Click on "New Web Service" from the Render dashboard.
+   - Connect your GitHub repository containing the OC Lettings project.
+   - Select the branch you want to deploy (e.g., `main`).
 
-**3. Configurez les paramètres du service :**
+**3. Configure the service settings:**
 
-   - **Build Command** : `docker build -t guwoop/oc_lettings_site:$RENDER_GIT_COMMIT .`
-   - **Start Command** : `docker run -p 80:8000 guwoop/oc_lettings_site:$RENDER_GIT_COMMIT`
-   - **Environment Variables** : Ajoutez les variables d'environnement nécessaires (voir section `.env`).
+   - **Build Command**: `docker build -t guwoop/oc_lettings_site:$RENDER_GIT_COMMIT .`
+   - **Start Command**: `docker run -p 80:8000 guwoop/oc_lettings_site:$RENDER_GIT_COMMIT`
+   - **Environment Variables**: Add the necessary environment variables (refer to the `.env` section).
 
-**4. Déployez le service :**
+**4. Deploy the service:**
 
-   - Cliquez sur "Create Web Service" pour démarrer le déploiement.
-   - Render construira et déploiera automatiquement votre application.
+   - Click on "Create Web Service" to initiate the deployment.
+   - Render will automatically build and deploy your application.
 
-**5. Vérifiez le déploiement :**
+**5. Verify the deployment:**
 
-   - Une fois le déploiement terminé, Render vous fournira une URL pour accéder à votre application.
-   - Assurez-vous que tout fonctionne correctement en visitant l'URL fournie.
+   - Once the deployment is complete, Render will provide you with a URL to access your application.
+   - Ensure everything works properly by visiting the provided URL.
 
-Notes
+#### Notes
 ------
-- Vous pouvez configurer des déploiements automatiques pour chaque push vers la branche sélectionnée en activant l'option correspondante sur Render.
-- Vérifiez les logs de déploiement sur Render en cas de problème pour diagnostiquer les erreurs.
+- You can enable automatic deployments for each push to the selected branch by activating the appropriate option on Render.
+- Check the deployment logs on Render if any issues arise to troubleshoot errors.
