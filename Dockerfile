@@ -1,13 +1,16 @@
-# Utiliser une image Python officielle
+# Base image
 FROM python:3.9-slim
 
-# Installer les dépendances
+# Install dépendancies
 WORKDIR /app
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-# Copier le code source
+# Copy code source
 COPY . .
+
+# Collect static files
+RUN python manage.py collectstatic --noinput
 
 # Exposer le port du serveur
 EXPOSE 8000

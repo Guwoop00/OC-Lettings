@@ -40,14 +40,26 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
+    
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+        
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+        
       - name: Log in to Docker Hub
         run: echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
-
-      - name: Build and push Docker image
+        
+      - name: Build Docker image
         run: |
           docker build -t guwoop/oc_lettings_site:$GITHUB_SHA .
+        
+      - name: Push Docker image
+        run: |
           docker push guwoop/oc_lettings_site:$GITHUB_SHA
+
 
   deploy:
     needs: build
