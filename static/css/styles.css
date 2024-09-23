@@ -20134,7 +20134,7 @@ section {
 }
 
 .error-page {
-  padding-left: 100px;
+  padding-left: 100px !important;
 }
 
 .footer {
