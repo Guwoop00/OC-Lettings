@@ -20133,6 +20133,10 @@ section {
   height: 100%;
 }
 
+.error-page {
+  padding: 20px;
+}
+
 .footer {
   font-size: 0.875rem;
 }
